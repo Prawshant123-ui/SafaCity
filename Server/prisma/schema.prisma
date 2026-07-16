@@ -10,3 +10,19 @@ datasource db {
 }
 
 
+enum  Role {
+  CITIZEN
+  COLLECTOR
+  ADMIN
+}
+
+model User {
+  id String @id @default(uuid())
+  name String
+  email String  @unique
+  password String
+  phone String @unique
+  role  Role @default(CITIZEN)
+  createdAt DateTime @default(now())
+}
+
